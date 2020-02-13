@@ -1,0 +1,136 @@
+<!--pages/main/main.wxml-->
+<!--剩余糖果-->
+  <view class="candyImage">   
+    <image src="../../images/candy.jpg"></image> 
+    <text>剩余糖果:{{myCandy}}</text>
+  </view>
+
+  <view class="mainButtonImage">
+    <view class="firstLineButtons">
+<!--糖果商店-->
+      <button bindtap="shopping" class="indexImage">
+        <image src="../../images/candyShop.jpg"></image>
+        <text>糖果商店</text>
+      </button>
+
+<!--糖果工坊-->
+        <button bindtap="processing" class="indexImage">
+          <image src="../../images/candyFactory.jpg"></image>
+          <text>糖果工坊</text>
+        </button>
+    </view>
+<!--发布问卷-->
+      <button bindtap="releasing" class="mainIndexImage" data-statu="open">
+        <image src="../../images/questionnaire.png"></image>
+        <text>发布问卷</text>
+      </button>
+
+<!--mask-->
+  <view class="drawer_screen" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+
+
+
+<!--使用animation属性指定需要执行的动画-->
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}"> 
+
+<!--drawer content-->
+  <view class="drawer_title">选择发放对象</view> 
+
+
+<!-- 弹窗内容 -->
+  <view class="drawer_content"> 
+
+
+<!-- 1.选择学校 -->
+    <view class="top grid"> 
+      <label class="title col-0">{{selectTypes[0]}}</label>
+       <picker class="choosePicker" bindchange="schoolPickerChange" value="{{schoolPicker.index}}" range="{{schoolPicker.arr}}">{{schoolPicker.arr[schoolPicker.index]}}</picker>
+
+    </view> 
+
+
+<!-- 2.选择年级 -->
+    <view class="top grid"> 
+      <label class="title col-0">{{selectTypes[1]}}</label> 
+      <view>
+        <view class="chooseButton" bindtap="chooseGrade" data-statu="open" wx:if="{{!isGradeChecked}}">点击选择年级</view>
+        <view class="chooseButton" bindtap="chooseGrade" data-statu="open" wx:if="{{isGradeChecked}}">
+          <block wx:for="{{checkedGrades}}" wx:key="index" wx:for-item = "outerItem">
+            <text wx:for="{{gradeCheckboxItems}}" wx:key="name">{{outerItem === item.name ? item.value + ' ' : ''}}</text>
+          </block>
+        </view>
+
+        <view class="drawer_screen" data-statu="close" wx:if="{{showModalStatus_2}}"></view>
+        <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus_2}}">
+          <checkbox-group class="checkbox-group" bindchange="gradeCheckboxChange">
+            <label class="checkbox" wx:for="{{gradeCheckboxItems}}" wx:key="name">
+              <checkbox class="checkboxContent" value="{{item.name}}"></checkbox>
+              {{item.value}}
+            </label>
+          
+          </checkbox-group>
+          <button class="btn_ok" bindtap="chooseGardeComplete" data-statu="close">确定</button>
+        </view>
+      </view>
+    </view> 
+
+
+<!-- 3.选择学院 -->
+    <view class="top grid"> 
+      <label class="title col-0">{{selectTypes[2]}}</label>  
+      <view>
+        <view class="chooseButton" bindtap="chooseCollege" data-statu="open" wx:if="{{!isCollegeChecked}}">点击选择学院</view>
+        <view class="chooseButton" bindtap="chooseCollege" data-statu="open" wx:if="{{isCollegeChecked}}">
+          <block wx:for="{{checkedColleges}}" wx:key="index" wx:for-item = "outerItem">
+            <view wx:for="{{collegeCheckboxItems}}" wx:key="name">{{outerItem === item.name ? item.value : ''}}</view>
+          </block>
+        </view>
+
+        <view class="drawer_screen" data-statu="close" wx:if="{{showModalStatus_3}}"></view>
+        <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus_3}}">
+          <checkbox-group class="checkbox-group" bindchange="collegeCheckboxChange">
+            <label class="checkbox" wx:for="{{collegeCheckboxItems}}" wx:key="name">
+              <checkbox class="checkboxContent" value="{{item.name}}"></checkbox>
+              {{item.value}}
+            </label>
+          
+          </checkbox-group>
+          <button class="btn_ok" bindtap="chooseCollegeComplete" data-statu="close">确定</button>
+        </view>
+      </view>
+    </view> 
+
+
+
+
+
+<!-- 4.选择发放数量 -->
+    <view class="top grid"> 
+      <label class="title col-0">{{selectTypes[3]}}</label> 
+       <picker class="choosePicker" bindchange="numberPickerChange" value="{{numberPicker.index}}" range="{{numberPicker.arr}}">{{numberPicker.arr[numberPicker.index]}}</picker>
+    </view> 
+    <view class="top bottom grid"> 
+      <label class="title col-0">备注</label> 
+    </view> 
+  </view> 
+
+  <button class="btn_ok" bindtap="releasing" data-statu="close">确定</button>
+
+  </view>
+
+
+  <view class="secondLineButtons">
+<!--日签打卡-->
+      <button bindtap="daily_checking" class="indexImage">
+        <image src="../../images/daily.jpg"></image>
+        <text>日签打卡</text>
+      </button>
+
+<!--消息通知-->
+      <button bindtap="message_reading" class="indexImage">
+        <image src="../../images/message.png"></image>
+        <text>消息通知</text>
+      </button>
+  </view>
+  </view>
+  

@@ -1,0 +1,14 @@
+<!--pages/user/user.wxml-->
+  <view class="headimage"> 
+      <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+      size="default"
+    ></button>
+  </view>
+
+  <view class="nickname">
+    <text>{{userInfo.nickName}}</text>
+  </view>

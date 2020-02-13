@@ -1,0 +1,50 @@
+{
+  "pages": [ 
+    "pages/user/user",        
+    "pages/index/index",    
+    "pages/main/main",
+    "pages/community/community",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib",
+    "pages/openapi/openapi",
+    "pages/openapi/serverapi/serverapi",
+    "pages/openapi/callback/callback",
+    "pages/openapi/cloudid/cloudid",
+    "pages/im/im",
+    "pages/im/room/room"
+  ],
+  "window": {
+    "backgroundColor": "#f6f6f6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffbd59",
+    "navigationBarTitleText": "甜甜问卷",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar":{
+    "list":[
+      {
+     "pagePath":"pages/main/main",
+     "text": "工作室",
+     "iconPath": "pics/studioHome.jpg",
+     "selectedIconPath": "pics/studioHome_selected.jpg"
+     },
+     {
+      "pagePath": "pages/community/community",
+      "text": "问卷社区",
+      "iconPath": "pics/community.jpg",
+      "selectedIconPath": "pics/community_selected.jpg"
+    },
+     {
+      "pagePath": "pages/user/user",
+      "text": "个人",
+      "iconPath": "pics/user.jpg",
+      "selectedIconPath": "pics/user_selected.jpg"
+    }]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
